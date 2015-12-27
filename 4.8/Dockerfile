@@ -27,7 +27,7 @@ RUN sudo service postgresql restart && sudo jma-setup
 
 # Set password for ormaster.
 RUN sudo apt-get install -y syslinux-common
-RUN sudo service postgresql restart && sudo -u orca echo -e "ormaster\normaster" | sudo -u orca /usr/lib/jma-receipt/bin/passwd_store.sh
+RUN sudo service postgresql restart && sleep 10 && sudo -u orca echo -e "ormaster\normaster" | sudo -u orca /usr/lib/jma-receipt/bin/passwd_store.sh
 
 # Clean up.
 RUN sudo apt-get clean
