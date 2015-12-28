@@ -1,13 +1,14 @@
 # Dockerfile for the ORCA server
 
 ## Supported tags and respective `Dockerfile` links
+* [`4.7` (4.8/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/4.7/Dockerfile)
 * [`4.8`, `latest` (4.8/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/4.8/Dockerfile)
 
 ## About this Repo
 
 This is the Git repo of the Docker image for the ORCA (Online Receipt Computer Advantage) server in a development environment. See the Docker Hub page for the full readme on how to use this Docker image and for information regarding contributing and issues.
 
-Reference: <http://www.orca.med.or.jp/receipt/download/trusty/>  
+Reference: <http://www.orca.med.or.jp/receipt/>
 GitHub page: <https://github.com/yamamuteki/orca-jma-receipt>  
 Docker Hub page: <https://hub.docker.com/r/yamamuteki/orca-jma-receipt/>
 
@@ -15,8 +16,8 @@ Docker Hub page: <https://hub.docker.com/r/yamamuteki/orca-jma-receipt/>
 
 ```bash
 git clone https://github.com/yamamuteki/orca-jma-receipt
-cd orca-jma-receipt
-docker build -t yamamuteki/orca-jma-receipt 4.8
+cd orca-jma-receipt/4.8
+docker build -t yamamuteki/orca-jma-receipt:4.8
 ```
 
 ## How to use the Docker image (recommend: use the Docker hub image)
