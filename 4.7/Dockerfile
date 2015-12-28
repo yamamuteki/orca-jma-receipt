@@ -22,7 +22,7 @@ WORKDIR /home/oruser
 # Install jma-receipt.
 RUN sudo apt-get install -y jma-receipt
 RUN sudo apt-get install -y orca-ca-cert
-RUN echo "if [ -f /etc/ssl/certs/orca-project-ca-2.crt ]; then\nCACERTFILE=/etc/ssl/certs/orca-project-ca-2.crt\nfi" | sudo tee -a /etc/jma-receipt/jma-receipt.conf
+RUN sudo echo -e "if [ -f /etc/ssl/certs/orca-project-ca-2.crt ]; then\nCACERTFILE=/etc/ssl/certs/orca-project-ca-2.crt\nfi" | sudo tee -a /etc/jma-receipt/jma-receipt.conf
 RUN sudo service postgresql restart && sudo jma-setup
 
 # Set password for ormaster.
