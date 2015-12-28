@@ -31,5 +31,5 @@ RUN sudo gluseradd -file /etc/jma-receipt/passwd -p ormaster ormaster
 # Clean up.
 RUN sudo apt-get clean
 
-EXPOSE 8000 5432
+EXPOSE 8000
 CMD sudo service postgresql restart && sudo service jma-receipt start && tail -f /dev/null
