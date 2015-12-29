@@ -1,6 +1,7 @@
 # Dockerfile for the ORCA server
 
 ## Supported tags and respective `Dockerfile` links
+* [`4.6` (4.6/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/4.6/Dockerfile)
 * [`4.7` (4.7/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/4.7/Dockerfile)
 * [`4.8`, `latest` (4.8/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/4.8/Dockerfile)
 
