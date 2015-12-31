@@ -1,10 +1,10 @@
 # Dockerfile for the ORCA server
 
 ## Supported tags and respective `Dockerfile` links
-* [`4.5` (4.5/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/4.5/Dockerfile)
-* [`4.6` (4.6/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/4.6/Dockerfile)
-* [`4.7` (4.7/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/4.7/Dockerfile)
-* [`4.8`, `latest` (4.8/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/4.8/Dockerfile)
+* [`4.8`, `trusty48`, `latest` (4.8/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/trusty48/Dockerfile)
+* [`4.7`, `precise47`, (4.7/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/precise47/Dockerfile)
+* [`4.6`, `lucid46`, (4.6/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/lucid46/Dockerfile)
+* [`4.5`, `lucid45`, (4.5/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/lucid45/Dockerfile)
 
 ## About this Repo
 
@@ -18,8 +18,8 @@ This is the Git repo of the Docker image for the ORCA (Online Receipt Computer A
 
 ```bash
 git clone https://github.com/yamamuteki/orca-jma-receipt
-cd orca-jma-receipt/4.8
-docker build -t yamamuteki/orca-jma-receipt:4.8
+cd orca-jma-receipt/trusty48
+docker build -t yamamuteki/orca-jma-receipt:trusty48
 ```
 
 ## How to use the Docker image (recommend: use the Docker hub image)
