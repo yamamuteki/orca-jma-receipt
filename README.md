@@ -16,14 +16,6 @@ This is the Git repo of the Docker image for the ORCA (Online Receipt Computer A
 * GitHub page: <https://github.com/yamamuteki/orca-jma-receipt>
 * Docker Hub page: <https://hub.docker.com/r/yamamuteki/orca-jma-receipt/>
 
-## How to use this Dockerfile (only build image on yourself)
-
-```bash
-git clone https://github.com/yamamuteki/orca-jma-receipt
-cd orca-jma-receipt/trusty48
-docker build -t yamamuteki/orca-jma-receipt:trusty48
-```
-
 ## How to use the Docker image (recommend: use the Docker hub image)
 
 Use services:
@@ -52,3 +44,10 @@ docker exec -it <CONTAINER_ID> /bin/bash
 
 Reference: <http://www.orca.med.or.jp/receipt/download/java-client/>
 
+## How to use this Dockerfile (only build image on yourself)
+
+```bash
+git clone https://github.com/yamamuteki/orca-jma-receipt
+cd orca-jma-receipt/trusty48
+docker build -t yamamuteki/orca-jma-receipt:trusty48
+```
