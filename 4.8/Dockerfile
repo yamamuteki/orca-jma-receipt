@@ -13,21 +13,16 @@ RUN wget -q -O /etc/apt/sources.list.d/jma-receipt-trusty48.list https://ftp.orc
 RUN apt-get update
 RUN apt-get dist-upgrade -y
 
-# Add oruser.
-RUN useradd -ms /bin/bash oruser && echo "oruser ALL=(ALL:ALL) NOPASSWD:ALL">> /etc/sudoers
-USER oruser
-WORKDIR /home/oruser
-
 # Install jma-receipt.
-RUN sudo apt-get install -y jma-receipt
-RUN wget https://ftp.orca.med.or.jp/pub/data/receipt/outline/update/claim_update.tar.gz && tar xvzf claim_update.tar.gz && sudo bash claim_update.sh
-RUN sudo service postgresql restart && sudo jma-setup
+RUN apt-get install -y jma-receipt
+RUN wget https://ftp.orca.med.or.jp/pub/data/receipt/outline/update/claim_update.tar.gz && tar xvzf claim_update.tar.gz && bash claim_update.sh
+RUN service postgresql restart && jma-setup
 
 # Set password for ormaster.
-RUN sudo service postgresql restart && sleep 10 && sudo -u orca echo -e "ormaster\normaster" | sudo -u orca /usr/lib/jma-receipt/bin/passwd_store.sh
+RUN service postgresql restart && sleep 10 && cd /tmp && /bin/echo -e "ormaster\normaster" | sudo -u orca /usr/lib/jma-receipt/bin/passwd_store.sh
 
 # Clean up.
-RUN sudo apt-get clean
+RUN apt-get clean
 
 EXPOSE 8000
-CMD sudo service postgresql restart && sudo service jma-receipt start && tail -f /dev/null
+CMD service postgresql restart && service jma-receipt start && tail -f /dev/null
