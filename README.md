@@ -4,6 +4,7 @@
 * [`trusty48`, `4.8`, `latest` (trusty48/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/trusty48/Dockerfile)
 * [`precise48`, (precise48/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/precise48/Dockerfile)
 * [`precise47`, `4.7`, (precise47/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/precise47/Dockerfile)
+* [`lucid47`, (lucid47/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/lucid47/Dockerfile)
 * [`lucid46`, `4.6`, (lucid46/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/lucid46/Dockerfile)
 * [`lucid45`, `4.5`, (lucid45/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/lucid45/Dockerfile)
 
