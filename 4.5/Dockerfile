@@ -17,7 +17,6 @@ RUN aptitude dist-upgrade -y
 RUN aptitude install -y postgresql-8.4
 RUN wget -q -O /etc/ssl/certs/orca-project-ca-1.crt http://ftp.orca.med.or.jp/pub/etc/orca-project-ca-2.crt
 RUN service postgresql-8.4 restart && aptitude install -o Dpkg::Options::="--force-confold" -y jma-receipt
-RUN aptitude install -o Dpkg::Options::="--force-confold" -y jma-receipt
 
 # CAUTION: Change no verify expired CA certificate for patches signed by orca-project-ca-1.crt in online upgrade.
 RUN sed -i -E 's/(flag = OpenSSL::PKCS7::BINARY)/\1 | OpenSSL::PKCS7::NOVERIFY/' /usr/lib/jma-receipt/scripts/allways/orcadt_verify.rb
