@@ -1,4 +1,4 @@
-FROM rjeczalik/etch-i386
+FROM yamamuteki/debian-etch-i386
 MAINTAINER yamamuteki <yama@muteki.com>
 
 ENV ORMASTER_PASSWORD=ormaster
@@ -6,12 +6,13 @@ ENV ORMASTER_PASSWORD=ormaster
 # Reference to http://ftp.orca.med.or.jp/pub/data/receipt/download/etch/etch_install-4.pdf.
 RUN set -xe \
   && cd /tmp \
+  && apt-get update \
+  && apt-get install -y apt-utils whiptail wget \
+  && dpkg-reconfigure apt-utils whiptail wget \
   && wget -q http://ftp.orca.med.or.jp/pub/debian/archive.key \
   && apt-key add archive.key \
   && echo "deb http://archive.debian.org/debian/ etch main contrib non-free"> /etc/apt/sources.list \
   && echo "deb-src http://archive.debian.org/debian/ etch main contrib non-free">> /etc/apt/sources.list \
-  && echo "deb http://archive.debian.org/debian-security/ etch/updates main contrib non-free">> /etc/apt/sources.list \
-  && echo "deb-src http://archive.debian.org/debian-security/ etch/updates main contrib non-free">> /etc/apt/sources.list \
   && echo "deb http://ftp.orca.med.or.jp/pub/debian/ etch jma">> /etc/apt/sources.list \
   && echo "deb-src http://ftp.orca.med.or.jp/pub/debian/ etch jma">> /etc/apt/sources.list \
   && apt-get update \
