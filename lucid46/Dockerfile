@@ -6,7 +6,6 @@ ENV ORMASTER_PASSWORD=ormaster
 # Reference to http://ftp.orca.med.or.jp/pub/data/receipt/download/lucid/lucid_install_46_03.pdf.
 RUN set -xe \
   && cd /tmp \
-  && sed -i -e 's/main/main universe/g' /etc/apt/sources.list \
   && apt-get update \
   && apt-get install -y apt-utils whiptail wget gnupg \
   && dpkg-reconfigure apt-utils whiptail wget gnupg \
