@@ -1,4 +1,4 @@
-FROM phusion/ubuntu-lucid-32
+FROM yamamuteki/ubuntu-lucid-i386
 MAINTAINER yamamuteki <yama@muteki.com>
 
 ENV ORMASTER_PASSWORD=ormaster
@@ -6,8 +6,10 @@ ENV ORMASTER_PASSWORD=ormaster
 # Reference to http://ftp.orca.med.or.jp/pub/data/receipt/download/lucid/lucid_install_47_01_20130430.pdf.
 RUN set -xe \
   && cd /tmp \
+  && sed -i -e 's/main/main universe/g' /etc/apt/sources.list \
   && apt-get update \
-  && apt-get install -y wget \
+  && apt-get install -y apt-utils whiptail wget gnupg \
+  && dpkg-reconfigure apt-utils whiptail wget gnupg \
   && wget -q http://ftp.orca.med.or.jp/pub/ubuntu/archive.key \
   && apt-key add archive.key \
   && wget -q -O /etc/apt/sources.list.d/jma-receipt-lucid47.list http://ftp.orca.med.or.jp/pub/ubuntu/jma-receipt-lucid47.list \
