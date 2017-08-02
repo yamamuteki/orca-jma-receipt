@@ -1,7 +1,8 @@
 # Dockerfile for the ORCA server
 
 ## Supported tags and respective `Dockerfile` links
-* [`trusty48`, `4.8`, `latest` (trusty48/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/trusty48/Dockerfile)
+* [`xenial50`, `5.0`, `latest` (xenial50/Dockerfile)](https://github.com/yamamuteki/orca/jma-receipt/blob/master/xenial50/Dockerfile)
+* [`trusty48`, `4.8`, (trusty48/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/trusty48/Dockerfile)
 * [`precise48`, (precise48/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/precise48/Dockerfile)
 * [`precise47`, `4.7`, (precise47/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/precise47/Dockerfile)
 * [`lucid47`, (lucid47/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/lucid47/Dockerfile)
@@ -41,6 +42,8 @@ docker exec -it <CONTAINER_ID> /bin/bash
 
 1. Download and install Java SE 7 or later
 2. Download and install Monsiaj
+  - [for jma-receipt v5.0 or later](https://www.orca.med.or.jp/receipt/download/java-client2/)
+  - [for jma-receipt prior to v5.0](https://www.orca.med.or.jp/receipt/download/java-client/)
 3. Input your docker-machine ip and your binding port (ex. 8000)
 
 Reference: <http://www.orca.med.or.jp/receipt/download/java-client/>
