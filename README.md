@@ -1,7 +1,8 @@
 # Dockerfile for the ORCA server
 
 ## Supported tags and respective `Dockerfile` links
-* [`xenial50`, `5.0`, `latest` (xenial50/Dockerfile)](https://github.com/yamamuteki/orca/jma-receipt/blob/master/xenial50/Dockerfile)
+* [`bionic51`, `5.1`, `latest` (bionic51/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/bionic51/Dockerfile)
+* [`xenial50`, `5.0` (xenial50/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/xenial50/Dockerfile)
 * [`trusty48`, `4.8`, (trusty48/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/trusty48/Dockerfile)
 * [`precise48`, (precise48/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/precise48/Dockerfile)
 * [`precise47`, `4.7`, (precise47/Dockerfile)](https://github.com/yamamuteki/orca-jma-receipt/blob/master/precise47/Dockerfile)
@@ -40,7 +41,7 @@ docker exec -it <CONTAINER_ID> /bin/bash
 
 ## How to connect your ORCA client
 
-1. Download and install Java SE 7 or later
+1. Download and install Java SE 8 or later
 2. Download and install Monsiaj
   - [for jma-receipt v5.0 or later](https://www.orca.med.or.jp/receipt/download/java-client2/)
   - [for jma-receipt prior to v5.0](https://www.orca.med.or.jp/receipt/download/java-client/)
@@ -52,6 +53,6 @@ Reference: <http://www.orca.med.or.jp/receipt/download/java-client/>
 
 ```bash
 git clone https://github.com/yamamuteki/orca-jma-receipt
-cd orca-jma-receipt/trusty48
-docker build -t yamamuteki/orca-jma-receipt:trusty48
+cd orca-jma-receipt/bionic51
+docker build -t yamamuteki/orca-jma-receipt:bionic51
 ```
