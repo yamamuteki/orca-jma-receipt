@@ -32,18 +32,20 @@ RUN set -ex; \
   apt-get install -y --no-install-recommends jma-receipt sudo; \
   rm -rf /var/lib/apt/lists/*
 
-RUN set -ex; \
-  service postgresql start; \
-  jma-setup; \
-  printf '%s\n' "$ORMASTER_PASSWORD" "$ORMASTER_PASSWORD" | script -q -c 'sudo -u orca /usr/lib/jma-receipt/bin/passwd_store.sh' /dev/null; \
-  rm -rf /tmp/*
-
 # we need this because jma-receipt doesn't provide System-V style init script anymore.
 # see: https://github.com/gdraheim/docker-systemctl-replacement
 RUN systemctlUrl='https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/v1.5.4505/files/docker/systemctl3.py'; \
   wget -q -O /usr/bin/systemctl $systemctlUrl; \
   chmod +x /usr/bin/systemctl
 
+RUN set -ex; \
+  systemctl start postgresql@12-main; \
+  jma-setup; \
+  printf '%s\n' "$ORMASTER_PASSWORD" "$ORMASTER_PASSWORD" | script -q -c 'sudo -u orca /usr/lib/jma-receipt/bin/passwd_store.sh' /dev/null; \
+  rm -rf /tmp/*; \
+  systemctl stop postgresql@12-main
+
 EXPOSE 8000
 WORKDIR /
-CMD service postgresql restart && systemctl start jma-receipt && tail -f /dev/null
+
+CMD systemctl start postgresql@12-main && systemctl start jma-receipt && tail -f /dev/null
