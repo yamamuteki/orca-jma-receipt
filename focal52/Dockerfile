@@ -48,4 +48,6 @@ RUN set -ex; \
 EXPOSE 8000
 WORKDIR /
 
-CMD systemctl start postgresql@12-main && systemctl start jma-receipt && tail -f /dev/null
+RUN systemctl enable postgresql@12-main
+RUN systemctl enable jma-receipt
+CMD systemctl --init
