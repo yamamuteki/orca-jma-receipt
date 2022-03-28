@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-MAINTAINER typewriter / takuya <takuyaxp@gmail.com>
+LABEL maintainer="typewriter / takuya <takuyaxp@gmail.com>"
 
 ENV ORMASTER_PASSWORD=ormaster
 ENV TZ=Asia/Tokyo
