@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-MAINTAINER typewriter / takuya <takuyaxp@gmail.com>
+LABEL maintainer="typewriter / takuya <takuyaxp@gmail.com>"
 
 ENV ORMASTER_PASSWORD=ormaster
 ENV TZ=Asia/Tokyo
@@ -26,20 +26,20 @@ RUN set -ex; \
   apt-key add archive.key; \
   listUrl='https://ftp.orca.med.or.jp/pub/ubuntu/jma-receipt-bionic51.list'; \
   wget -q -O /etc/apt/sources.list.d/jma-receipt-bionic51.list $listUrl; \
-  apt-get purge -y --auto-remove $fetchDeps; \
-  \
   apt-get update; \
   apt-get dist-upgrade -y; \
   apt-get install -y --no-install-recommends jma-receipt; \
-  rm -rf /var/lib/apt/lists/*; \
-  \
-  apt-get update; \
-  apt-get install sudo; \
+  apt-get install sudo
+
+# ref: https://www.orca.med.or.jp/news/program_update_error_201905.html
+RUN wget https://ftp.orca.med.or.jp/pub/etc/install_modules_for_ftp.tgz; \
+  tar xvzf install_modules_for_ftp.tgz; \
+  cd install_modules_for_ftp; \
+  sudo -u orca ./install_modules.sh; \
   rm -rf /var/lib/apt/lists/*
 
 RUN set -ex; \
   service postgresql start; \
-  cp -p /etc/ssl/certs/orca-project-ca-2.pem /etc/ssl/certs/orca-project-ca-2.crt; \
   jma-setup; \
   printf '%s\n' "$ORMASTER_PASSWORD" "$ORMASTER_PASSWORD" | script -q -c 'sudo -u orca /usr/lib/jma-receipt/bin/passwd_store.sh' /dev/null; \
   # don't remove 'sudo' here because of warnings
